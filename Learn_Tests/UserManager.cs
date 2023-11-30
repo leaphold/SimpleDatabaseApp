@@ -15,8 +15,6 @@ namespace Learn_Tests
             _database = database ?? throw new ArgumentNullException(nameof(database));
         }
 
-
-
         //INTERFACE Implementering
         public void AddUser(User user)
         {
@@ -33,10 +31,9 @@ namespace Learn_Tests
         }
 
         public User GetUser(int userId)
+        
         {
-
             return _database.GetUser(userId);
-
         }
     }
 
