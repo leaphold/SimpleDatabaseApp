@@ -22,12 +22,10 @@ namespace Learn_Tests
             _database.AddUser(user);
 
         }
-
         public void RemoveUser(int userId)
         {
 
             _database.RemoveUser(userId);
-
         }
 
         public User GetUser(int userId)

@@ -8,9 +8,9 @@ namespace Learn_Tests
         {
 
             // Skapa en instans av en enkel database
-            var database = new UserDatabase();
+            IDatabase database = new UserDatabase();
             // Skapa en instans av UserManager och skicka in databasen
-            var userManager = new UserManager(database);
+            UserManager userManager = new UserManager(database);
 
 
             // Använd UserManager för att lägga till, ta bort och hämta användare

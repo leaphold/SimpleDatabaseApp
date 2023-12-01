@@ -4115,11 +4115,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/leophold/Documents/Code/Programmering C#/OOP/TDD/inlämning2/SimpleDatabaseApp/Tests/Tests.csproj",
+      "projectUniqueName": "/home/leophold/Documents/Code/C#/OOP/TDD/inlämning2/SimpleDatabaseApp/Tests/Tests.csproj",
       "projectName": "Tests",
-      "projectPath": "/home/leophold/Documents/Code/Programmering C#/OOP/TDD/inlämning2/SimpleDatabaseApp/Tests/Tests.csproj",
+      "projectPath": "/home/leophold/Documents/Code/C#/OOP/TDD/inlämning2/SimpleDatabaseApp/Tests/Tests.csproj",
       "packagesPath": "/home/leophold/.nuget/packages/",
-      "outputPath": "/home/leophold/Documents/Code/Programmering C#/OOP/TDD/inlämning2/SimpleDatabaseApp/Tests/obj/",
+      "outputPath": "/home/leophold/Documents/Code/C#/OOP/TDD/inlämning2/SimpleDatabaseApp/Tests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/leophold/.nuget/NuGet/NuGet.Config"
@@ -4134,8 +4134,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/home/leophold/Documents/Code/Programmering C#/OOP/TDD/inlämning2/SimpleDatabaseApp/Learn_Tests/Learn_Tests.csproj": {
-              "projectPath": "/home/leophold/Documents/Code/Programmering C#/OOP/TDD/inlämning2/SimpleDatabaseApp/Learn_Tests/Learn_Tests.csproj"
+            "/home/leophold/Documents/Code/C#/OOP/TDD/inlämning2/SimpleDatabaseApp/Learn_Tests/Learn_Tests.csproj": {
+              "projectPath": "/home/leophold/Documents/Code/C#/OOP/TDD/inlämning2/SimpleDatabaseApp/Learn_Tests/Learn_Tests.csproj"
             }
           }
         }

@@ -6,37 +6,42 @@ using System.Linq;
 using System.Text;
 
 namespace Learn_Tests.Tests;
+
+[TestFixture]
 public class Tests
 {
-    [Test]
-    public void GetUser_ReturnsCorrectUser()
+    private Mock<IDatabase> mockDatabase;
+    private UserManager userManager;
+
+    [SetUp]
+    public void Setup()
     {
-        // Arrange
-        var expectedUser = new User(1, "Anna");
-
-        var mockDatabase = new Mock<IDatabase>();
-        mockDatabase.Setup(service => service.GetUser(1)).Returns(expectedUser);
-
-        var userManager = new UserManager(mockDatabase.Object);
-
-        // Act
-        var actualUser = userManager.GetUser(1);
-
-        // Assert
-        Assert.That(actualUser, Is.EqualTo(expectedUser));
+        // Initialize mock database and user manager before each test
+        mockDatabase = new Mock<IDatabase>();
+        userManager = new UserManager(mockDatabase.Object);
     }
 
+    [Test]
+public void GetUser_ReturnsCorrectUserFromDatabase()
+{
+    // Arrange
+    var expectedUser = new User(1, "Anna");
+
+    // Set up the service: GetUser with id 1 should return expectedUser
+    mockDatabase.Setup(service => service.GetUser(1)).Returns(expectedUser);
+
+    // Act
+    var actualUser = userManager.GetUser(1);
+
+    // Assert
+    Assert.That(actualUser, Is.EqualTo(expectedUser));
+}
 
     [Test]
     public void AddUser_CreatesUserInDatabase()
     {
         // Arrange
         var newUser = new User(1, "John");
-
-        var mockDatabase = new Mock<IDatabase>();
-        mockDatabase.Setup(service => service.GetUser(1)).Returns((User)null); // Assume user doesn't exist initially
-
-        var userManager = new UserManager(mockDatabase.Object);
 
         // Act
         userManager.AddUser(newUser);
@@ -45,26 +50,20 @@ public class Tests
         mockDatabase.Verify(service => service.AddUser(newUser), Times.Once);
     }
 
-
     [Test]
     public void RemoveUser_RemovesUserFromDatabase()
     {
         // Arrange
-        var userIdToRemove = 1;
+        var userId = 1233;
+        var userToRemove = new User(userId, "JohnDoe");
 
-        var mockDatabase = new Mock<IDatabase>();
-        var userToRemove = new User(userIdToRemove, "John");
-
-        mockDatabase.Setup(service => service.GetUser(userIdToRemove)).Returns(userToRemove);
-
-        var userManager = new UserManager(mockDatabase.Object);
+        // Set up the service: GetUser with id userId should return userToRemove
+        mockDatabase.Setup(service => service.GetUser(userId)).Returns(userToRemove);
 
         // Act
-        userManager.RemoveUser(userIdToRemove);
+        userManager.RemoveUser(userId);
 
         // Assert
-        mockDatabase.Verify(service => service.RemoveUser(userIdToRemove), Times.Once);
+        mockDatabase.Verify(service => service.RemoveUser(userId), Times.Once);
     }
-
-
 }
